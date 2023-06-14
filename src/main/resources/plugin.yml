@@ -1,0 +1,5 @@
+name: SoupAPI
+version: '${project.version}'
+main: me.souprpk.api.SoupAPI
+api-version: 1.13
+authors: [ SouprPK ]
