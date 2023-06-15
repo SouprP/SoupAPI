@@ -1,5 +1,8 @@
 package me.souprpk.api.math;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class SMath {
 
     private final static double PI = 3.141592653589;
@@ -13,6 +16,12 @@ public class SMath {
         return deg * PI / 180;
     }
 
-    
+    public double truncateDecimal(final double value, final int numberOfDecimals) {
+        return new BigDecimal(String.valueOf(value)).setScale(numberOfDecimals, RoundingMode.DOWN).doubleValue(); // BigDecimal.ROUND_DOWN
+    }
+
+    public float truncateDecimal(final float value, final int numberOfDecimals) {
+        return new BigDecimal(String.valueOf(value)).setScale(numberOfDecimals, RoundingMode.DOWN).floatValue(); // BigDecimal.ROUND_DOWN
+    }
 
 }

@@ -1,6 +1,4 @@
-package me.souprpk.api.system;
-
-import me.souprpk.api.math.SMath;
+package me.souprpk.api.network;
 
 public class ServerInfo {
 
