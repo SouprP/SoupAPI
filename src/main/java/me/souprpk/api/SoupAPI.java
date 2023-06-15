@@ -2,16 +2,15 @@ package me.souprpk.api;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class SoupAPI extends JavaPlugin {
+public final class SoupAPI {
 
-    @Override
-    public void onEnable() {
-        // Plugin startup logic
+    private JavaPlugin provider;
 
+    public JavaPlugin getProvider(){
+        return this.provider;
     }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
+    public void setProvider(JavaPlugin plugin){
+        this.provider = plugin;
     }
 }
