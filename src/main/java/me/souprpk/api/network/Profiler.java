@@ -11,6 +11,6 @@ public class Profiler {
     }
 
     public double getTPS(){
-        Bukkit.getServer().spigot().
+        return 0;
     }
 }
