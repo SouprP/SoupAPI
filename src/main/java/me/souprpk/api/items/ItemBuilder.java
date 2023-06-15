@@ -1,6 +1,6 @@
 package me.souprpk.api.items;
 
-import me.souprpk.api.text.TextBuilder;
+import me.souprpk.api.text.Text;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -25,13 +25,13 @@ public class ItemBuilder {
     // Material and other
     private Material mat = Material.AIR;
     private int amount = 1;
-    private int customModel;
+    private Integer customModel = null;
     ////
-    private boolean shouldColor;
+    private boolean shouldColor = true;
 
     public ItemBuilder setDisplay(String name){
         if(shouldColor){
-            this.display = new TextBuilder().color(name).build();
+            this.display = Text.color(name);
             return this;
         }
         this.display = name;
@@ -54,7 +54,7 @@ public class ItemBuilder {
                 lore = new ArrayList<>();
 
             for(String text : lore)
-                this.lore.add(new TextBuilder().color(text).build());
+                this.lore.add(Text.color(text));
 
             return this;
         }
@@ -67,7 +67,7 @@ public class ItemBuilder {
             this.lore = new ArrayList<>();
 
         if(shouldColor){
-            this.lore.add(new TextBuilder().color(line).build());
+            this.lore.add(Text.color(line));
             return this;
         }
         this.lore.add(line);
@@ -141,6 +141,9 @@ public class ItemBuilder {
         if(itemFlags != null)
             for(ItemFlag flag : itemFlags)
                 meta.addItemFlags(flag);
+
+        if(customModel != null)
+            meta.setCustomModelData(customModel);
 
         item.setItemMeta(meta);
         return item;
