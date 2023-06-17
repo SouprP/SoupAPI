@@ -2,8 +2,38 @@ package me.souprpk.api.math;
 
 public class Algorithms {
 
-    public void quicksort(){
+    public void quicksort(double[] arr){
+        quicksort(arr, 0, arr.length - 1);
+    }
 
+    private void quicksort(double[] arr, int low, int high){
+        if(low < high){
+            int part = partition(arr, low, high);
+            quicksort(arr, low, part -1);
+            quicksort(arr, part + 1, high);
+        }
+    }
+
+    private int partition(double[] arr, int low, int high){
+        double pivot = arr[high];
+        int i = low - 1;
+        for(int j =low; j < high; j++){
+            if(arr[j] <= pivot){
+                i++;
+
+                // swap
+                double temp = arr[j];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // swap
+        double temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1;
     }
 
     public int eulersAlgorithm(int a, int b){
