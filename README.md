@@ -1,6 +1,4 @@
 # SoupAPI
-An API to 
-
 ### Features
 General: 
 - Math functions - vectors and other
@@ -10,7 +8,7 @@ General:
 - HTTP calls 
 - Mojang API calls
 
-Minecraft related:
+Bukkit / Spigot related:
 - Item Builder
 - Text Utilities - colorizing, decolorizing
 - World Utilities - world generation
